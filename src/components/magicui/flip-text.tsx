@@ -39,7 +39,7 @@ export default function FlipText({
   const [isVisible, setIsVisible] = useState(false);
   const textRef = useRef<HTMLDivElement>(null);
 
-  // Intersection Observer를 사용해 텍스트가 화면에 보일 때 애니메이션 시작
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
