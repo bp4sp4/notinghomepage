@@ -40,7 +40,8 @@ export default function PathDrawing() {
           height="600"
           viewBox="0 0 600 600"
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: true }}
           style={image}
         >
           <motion.circle

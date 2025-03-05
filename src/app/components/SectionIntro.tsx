@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function SectionIntro() {
   const text = "여기, 아무것도 없어요.".split(" ");
-  const text2 = "아이디어가 부족해서, 디자인을 잔뜩 넣어봤어요...".split(" ");
+  const text2 = "아이디어가 부족해서, 디자인을 잔뜩 넣어봤어요..".split(" ");
 
   return (
     <section className="h-screen flex items-center justify-center flex-col bg-gradient-to-r from-purple-600 via-blue-500 to-pink-500 text-white">

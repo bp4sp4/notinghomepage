@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 
-const text = "저 그래도 뭐라도 있어 보여야 해서 motion.js 썼어요..".split(" ");
+const text = "그래도 뭐라도 있어 보여야 해서 motion.js 썼어요..".split(" ");
 
 export default function SectionGallery() {
   return (
