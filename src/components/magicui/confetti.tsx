@@ -2,7 +2,6 @@
 
 import confetti from "canvas-confetti";
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
 
 export default function ConfettiFireworks() {
   const [triggered, setTriggered] = useState(false);
