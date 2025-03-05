@@ -55,11 +55,12 @@ export const TypingAnimation = ({
   const [started, setStarted] = useState(false);
   const elementRef = useRef<HTMLElement | null>(null);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const startTimeout = setTimeout(() => setStarted(true), delay);
     return () => clearTimeout(startTimeout);
   }, [delay]);
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (!started) return;
 
