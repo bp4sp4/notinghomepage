@@ -1,5 +1,3 @@
-"use client";
-
 import { cn } from "@/lib/utils";
 import { motion, MotionProps } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
@@ -36,7 +34,6 @@ interface TypingAnimationProps extends MotionProps {
   className?: string;
   duration?: number;
   delay?: number;
-  as?: React.ElementType;
 }
 
 export const TypingAnimation = ({
@@ -44,7 +41,6 @@ export const TypingAnimation = ({
   className,
   duration = 60,
   delay = 0,
-  as: Component = "span",
   ...props
 }: TypingAnimationProps) => {
   if (typeof children !== "string") {
@@ -95,7 +91,6 @@ interface TerminalProps {
 export const Terminal = ({ children, className }: TerminalProps) => {
   return (
     <>
-      {" "}
       <div className="flex items-center justify-center mt-6">
         {text.map((word, index) => (
           <motion.span
