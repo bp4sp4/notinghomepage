@@ -40,16 +40,17 @@ export default function FlipText({
           setIsVisible(true);
         }
       },
-      { threshold: 0.5 } // 50% 이상 보일 때 애니메이션 시작
+      { threshold: 0.5 }
     );
 
-    if (textRef.current) {
-      observer.observe(textRef.current);
+    const currentRef = textRef.current; // ref 값을 변수에 저장
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (textRef.current) {
-        observer.unobserve(textRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
