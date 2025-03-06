@@ -302,7 +302,7 @@ const File = forwardRef<
       ...props
     },
     ref
-  ) => {
+  ): React.JSX.Element => {
     const { direction, selectedId, selectItem } = useTree();
     const isSelected = isSelect ?? selectedId === value;
     return (
@@ -337,51 +337,56 @@ const CollapseButton = forwardRef<
     elements: TreeViewElement[];
     expandAll?: boolean;
   } & React.HTMLAttributes<HTMLButtonElement>
->(({ className, elements, expandAll = false, children, ...props }, ref) => {
-  const { expandedItems, setExpandedItems } = useTree();
+>(
+  (
+    { className, elements, expandAll = false, children, ...props },
+    ref
+  ): React.JSX.Element => {
+    const { expandedItems, setExpandedItems } = useTree();
 
-  const expendAllTree = useCallback(
-    (elements: TreeViewElement[]) => {
-      const expandTree = (element: TreeViewElement) => {
-        const isSelectable = element.isSelectable ?? true;
-        if (isSelectable && element.children && element.children.length > 0) {
-          setExpandedItems?.((prev) => [...(prev ?? []), element.id]);
-          element.children.forEach(expandTree);
-        }
-      };
+    const expendAllTree = useCallback(
+      (elements: TreeViewElement[]) => {
+        const expandTree = (element: TreeViewElement) => {
+          const isSelectable = element.isSelectable ?? true;
+          if (isSelectable && element.children && element.children.length > 0) {
+            setExpandedItems?.((prev) => [...(prev ?? []), element.id]);
+            element.children.forEach(expandTree);
+          }
+        };
 
-      elements.forEach(expandTree);
-    },
-    [setExpandedItems]
-  );
+        elements.forEach(expandTree);
+      },
+      [setExpandedItems]
+    );
 
-  const closeAll = useCallback(() => {
-    setExpandedItems?.([]);
-  }, [setExpandedItems]);
+    const closeAll = useCallback(() => {
+      setExpandedItems?.([]);
+    }, [setExpandedItems]);
 
-  useEffect(() => {
-    if (expandAll) {
-      expendAllTree(elements);
-    }
-  }, [expandAll, elements, expendAllTree, setExpandedItems]);
-
-  return (
-    <Button
-      variant={"ghost"}
-      className="absolute bottom-1 right-2 h-8 w-fit p-1"
-      onClick={
-        expandedItems && expandedItems.length > 0
-          ? closeAll
-          : () => expendAllTree(elements)
+    useEffect(() => {
+      if (expandAll) {
+        expendAllTree(elements);
       }
-      ref={ref}
-      {...props}
-    >
-      {children}
-      <span className="sr-only">Toggle</span>
-    </Button>
-  );
-});
+    }, [expandAll, elements, expendAllTree, setExpandedItems]);
+
+    return (
+      <Button
+        variant={"ghost"}
+        className="absolute bottom-1 right-2 h-8 w-fit p-1"
+        onClick={
+          expandedItems && expandedItems.length > 0
+            ? closeAll
+            : () => expendAllTree(elements)
+        }
+        ref={ref}
+        {...props}
+      >
+        {children}
+        <span className="sr-only">Toggle</span>
+      </Button>
+    );
+  }
+);
 
 CollapseButton.displayName = "CollapseButton";
 
