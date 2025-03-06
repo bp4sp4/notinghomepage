@@ -83,17 +83,14 @@ const Tree = forwardRef<HTMLDivElement, TreeViewProps>(
       setSelectedId(id);
     }, []);
 
-    const handleExpand = useCallback(
-      (id: string) => {
-        setExpandedItems((prev) => {
-          if (prev?.includes(id)) {
-            return prev.filter((item) => item !== id);
-          }
-          return [...(prev ?? []), id];
-        });
-      },
-      [setExpandedItems]
-    );
+    const handleExpand = useCallback((id: string) => {
+      setExpandedItems((prev) => {
+        if (prev?.includes(id)) {
+          return prev.filter((item) => item !== id);
+        }
+        return [...(prev ?? []), id];
+      });
+    }, []);
 
     const expandSpecificTargetedElements = useCallback(
       (elements?: TreeViewElement[], selectId?: string) => {
@@ -357,13 +354,13 @@ const CollapseButton = forwardRef<
 
   const closeAll = useCallback(() => {
     setExpandedItems?.([]);
-  }, []);
+  }, [setExpandedItems]);
 
   useEffect(() => {
     if (expandAll) {
       expendAllTree(elements);
     }
-  }, [expandAll, elements, expendAllTree]);
+  }, [expandAll, elements, expendAllTree, setExpandedItems]);
 
   return (
     <Button
