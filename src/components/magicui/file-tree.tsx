@@ -129,12 +129,11 @@ const Tree = forwardRef<HTMLDivElement, TreeViewProps>(
       },
       []
     );
-
     useEffect(() => {
       if (initialSelectedId) {
         expandSpecificTargetedElements(elements, initialSelectedId);
       }
-    }, [initialSelectedId, elements]);
+    }, [initialSelectedId, elements, expandSpecificTargetedElements]);
 
     const direction = dir === "rtl" ? "rtl" : "ltr";
 
