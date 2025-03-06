@@ -1,21 +1,24 @@
 "use client";
 
 import SectionIntro from "./components/SectionIntro";
-import SectionGallery from "./components/SectionGallery";
 import SectionText from "./components/SectionText";
 import SectionShape from "./components/SectionShape";
-
-import Footer from "./components/Footer";
+import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
 import {
-  Terminal,
-  TypingAnimation,
-  AnimatedSpan,
-} from "@/components/magicui/terminal";
+  RocketIcon,
+  ChatBubbleIcon,
+  BellIcon,
+  CalendarIcon,
+  Share2Icon,
+} from "@radix-ui/react-icons";
+import Footer from "./components/Footer";
+import FileTreeComponents from "./components/FileTree";
 import ConfettiFireworks from "@/components/magicui/confetti";
 import FlipText from "@/components/magicui/flip-text";
 import { motion, useSpring, useScroll } from "motion/react";
 
 export default function Home() {
+  const text = "맞아요 사실 Next.JS랑 친해지는중이에요.".split(" ");
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -39,64 +42,81 @@ export default function Home() {
         }}
       />
       <SectionIntro />
-      <SectionGallery />
+      <FileTreeComponents />
       <SectionText />
       <SectionShape />
 
       <FlipText className="text-2xl font-bold -tracking-widest text-white dark:text-white md:text-7xl md:leading-[5rem]">
         어떤 아이디어가 있을까 고민했지만, 사실 특별한 것은 떠오르지 않았어요.
         그럼에도 다양한 것들을 해봤고, GSAP SplitText를 사용하려면 멤버십이
-        필요해서, Magic UI GSAP SplitText 처럼 나타나게 했어요.
+        필요해서, Magic UI를 사용해서 GSAP SplitText 처럼 나타나게 했어요.
       </FlipText>
+      <div className="container mx-auto py-12 grid__wrap">
+        {text.map((word, index) => (
+          <motion.span
+            key={index}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1, duration: 1 }}
+            className="text-4xl mx-2 "
+          >
+            {word}
+          </motion.span>
+        ))}
+        <BentoGrid className="mt-6">
+          {/* 첫 번째 줄 */}
+          <BentoCard
+            name="실시간 채팅"
+            description="생각보다 임포트 어렵네."
+            href="/chat"
+            cta="채팅 시작하기"
+            Icon={ChatBubbleIcon}
+            className="col-span-1 md:col-span-1"
+            background={<div className="bg-blue-500 h-full w-full" />}
+          />
+          <BentoCard
+            name="로켓 배송"
+            description="왜이렇게 까다로워"
+            href="/delivery"
+            cta="배송 알아보기"
+            Icon={RocketIcon}
+            className="col-span-2 md:col-span-2"
+            background={<div className="bg-red-500 h-full w-full" />}
+          />
 
-      <Terminal>
-        <TypingAnimation>&gt; sanghunpage nothings &nbsp;</TypingAnimation>
+          {/* 두 번째 줄 */}
+          <BentoCard
+            name="AI 추천"
+            description="헤더하나 만들까..너무 성의없는데"
+            href="/ai-recommend"
+            cta="추천 보기"
+            Icon={BellIcon}
+            className="col-span-1 md:col-span-3"
+            background={<div className="bg-green-500 h-full w-full" />}
+          />
+          <BentoCard
+            name="프로모션 이벤트"
+            description="이딴걸 포트폴리오에 넣어도되나..."
+            href="/promotion"
+            cta="이벤트 참여"
+            Icon={CalendarIcon}
+            className="col-span-3 md:col-span-2"
+            background={<div className="bg-yellow-500 h-full w-full" />}
+          />
 
-        <AnimatedSpan delay={1500} className="text-green-500">
-          <span>✔ 아무것도 없는거 체크.</span>
-        </AnimatedSpan>
+          {/* 세 번째 줄 */}
+          <BentoCard
+            name="사용자 후기"
+            description="더 넣으면 홈페이지 렉걸릴꺼같은데..."
+            href="/reviews"
+            cta="후기 보기"
+            Icon={Share2Icon}
+            className="col-span-3 md:col-span-1"
+            background={<div className="bg-purple-500 h-full w-full" />}
+          />
+        </BentoGrid>
+      </div>
 
-        <AnimatedSpan delay={2000} className="text-green-500">
-          <span>✔ next.js 사용 체크.</span>
-        </AnimatedSpan>
-
-        <AnimatedSpan delay={2500} className="text-green-500">
-          <span>✔ Tailwind CSS 사용체크.</span>
-        </AnimatedSpan>
-
-        <AnimatedSpan delay={3000} className="text-green-500">
-          <span>✔ gsap 진짜 쓰기 어려운거 확인.</span>
-        </AnimatedSpan>
-
-        <AnimatedSpan delay={3500} className="text-green-500">
-          <span>✔ magic ui도 이거 임포트해오는거 1시간 삽질한거 체크.</span>
-        </AnimatedSpan>
-
-        <AnimatedSpan delay={4000} className="text-green-500">
-          <span>✔ motion.js 쓰기 쉬움 체크.</span>
-        </AnimatedSpan>
-
-        <AnimatedSpan delay={4500} className="text-green-500">
-          <span>✔ Tailwind CSS 조금 더 공부 필요</span>
-        </AnimatedSpan>
-
-        <AnimatedSpan delay={5000} className="text-green-500">
-          <span>✔ 뭐라도 더 하자 뭐라도 더 만들자</span>
-        </AnimatedSpan>
-
-        <AnimatedSpan delay={5500} className="text-green-500">
-          <span>✔ 한두개만 더 넣어볼까? .</span>
-        </AnimatedSpan>
-
-        <AnimatedSpan delay={6000} className="text-blue-500">
-          <span>ℹ magic ui update 3 file:</span>
-          <span className="pl-2">- terminal.tsx,</span>
-        </AnimatedSpan>
-
-        <TypingAnimation delay={6500} className="text-muted-foreground">
-          &nbsp; Project nothings completed.
-        </TypingAnimation>
-      </Terminal>
       <div className="relative h-screen  flex h-[500px] w-full items-center justify-center overflow-hidden   bg-black text-white">
         <ConfettiFireworks />
       </div>
