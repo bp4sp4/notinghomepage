@@ -83,14 +83,17 @@ const Tree = forwardRef<HTMLDivElement, TreeViewProps>(
       setSelectedId(id);
     }, []);
 
-    const handleExpand = useCallback((id: string) => {
-      setExpandedItems((prev) => {
-        if (prev?.includes(id)) {
-          return prev.filter((item) => item !== id);
-        }
-        return [...(prev ?? []), id];
-      });
-    }, []);
+    const handleExpand = useCallback(
+      (id: string) => {
+        setExpandedItems((prev) => {
+          if (prev?.includes(id)) {
+            return prev.filter((item) => item !== id);
+          }
+          return [...(prev ?? []), id];
+        });
+      },
+      [setExpandedItems]
+    );
 
     const expandSpecificTargetedElements = useCallback(
       (elements?: TreeViewElement[], selectId?: string) => {
