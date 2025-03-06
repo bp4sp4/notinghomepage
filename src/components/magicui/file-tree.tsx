@@ -302,7 +302,7 @@ const File = forwardRef<
       ...props
     },
     ref
-  ): React.JSX.Element => {
+  ) => {
     const { direction, selectedId, selectItem } = useTree();
     const isSelected = isSelect ?? selectedId === value;
     return (
@@ -337,57 +337,46 @@ const CollapseButton = forwardRef<
     elements: TreeViewElement[];
     expandAll?: boolean;
   } & React.HTMLAttributes<HTMLButtonElement>
->(
-  (
-    { className, elements, expandAll = false, children, ...props },
-    ref
-  ): React.JSX.Element => {
-    const { expandedItems, setExpandedItems } = useTree();
+>(({ className, elements, expandAll = false, children, ...props }, ref) => {
+  const { expandedItems, setExpandedItems } = useTree();
 
-    const expendAllTree = useCallback(
-      (elements: TreeViewElement[]) => {
-        const expandTree = (element: TreeViewElement) => {
-          const isSelectable = element.isSelectable ?? true;
-          if (isSelectable && element.children && element.children.length > 0) {
-            setExpandedItems?.((prev) => [...(prev ?? []), element.id]);
-            element.children.forEach(expandTree);
-          }
-        };
-
-        elements.forEach(expandTree);
-      },
-      [setExpandedItems]
-    );
-
-    const closeAll = useCallback(() => {
-      setExpandedItems?.([]);
-    }, [setExpandedItems]);
-
-    useEffect(() => {
-      if (expandAll) {
-        expendAllTree(elements);
-      }
-    }, [expandAll, elements, expendAllTree, setExpandedItems]);
-
-    return (
-      <Button
-        variant={"ghost"}
-        className="absolute bottom-1 right-2 h-8 w-fit p-1"
-        onClick={
-          expandedItems && expandedItems.length > 0
-            ? closeAll
-            : () => expendAllTree(elements)
+  const expendAllTree = useCallback(
+    (elements: TreeViewElement[]) => {
+      const expandTree = (element: TreeViewElement) => {
+        const isSelectable = element.isSelectable ?? true;
+        if (isSelectable && element.children && element.children.length > 0) {
+          setExpandedItems?.((prev) => [...(prev ?? []), element.id]);
+          element.children.forEach(expandTree);
         }
-        ref={ref}
-        {...props}
-      >
-        {children}
-        <span className="sr-only">Toggle</span>
-      </Button>
-    );
-  }
-);
+      };
+
+      elements.forEach(expandTree);
+    },
+    [setExpandedItems]
+  );
+
+  const closeAll = useCallback(() => {
+    setExpandedItems?.([]);
+  }, [setExpandedItems]);
+
+  useEffect(() => {
+    if (expandAll) {
+      expendAllTree(elements);
+    }
+  }, [expandAll, elements, expendAllTree, setExpandedItems]);
+
+  return (
+    <Button
+      variant={"ghost"}
+      className={cn("w-full", className)}
+      {...props}
+      ref={ref}
+    >
+      {expandAll ? "모두 펼치기" : "모두 접기"}
+    </Button>
+  );
+});
 
 CollapseButton.displayName = "CollapseButton";
 
-export { CollapseButton, File, Folder, Tree, type TreeViewElement };
+export { Tree, Folder, File, CollapseButton };
