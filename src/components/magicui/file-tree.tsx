@@ -1,5 +1,4 @@
 "use client";
-
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { FileIcon, FolderIcon, FolderOpenIcon } from "lucide-react";
 import React, {
@@ -129,6 +128,7 @@ const Tree = forwardRef<HTMLDivElement, TreeViewProps>(
       },
       []
     );
+
     useEffect(() => {
       if (initialSelectedId) {
         expandSpecificTargetedElements(elements, initialSelectedId);
