@@ -1,22 +1,31 @@
 "use client";
 import { motion } from "framer-motion";
+import { FlipWords } from "@/components/ui/flip-words";
 
-export default function SectionText() {
-  const text = "위에 스크롤에 맞춰서 지나가는거 보이시죠?".split(" ");
+export default function SectionIntro() {
+  const words = ["창의적인", "혁신적인", "동적인", "미래적인"];
 
   return (
-    <section className="h-screen flex items-center justify-center bg-black text-white">
-      {text.map((word, index) => (
-        <motion.span
-          key={index}
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: index * 0.3, duration: 1 }}
-          className="text-4xl mx-2"
-        >
-          {word}
-        </motion.span>
-      ))}
-    </section>
+    <>
+      <div className="bg-black">
+        <section className="h-screen flex justify-center items-center flex-col text-white intro__wrap">
+          <motion.div className="text-4xl">
+            <motion.span
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2 }}
+              className="text-shadow-lg"
+            >
+              <h1>
+                만들어봤어요"{" "}
+                <FlipWords className="text-black bg-white" words={words} /> "
+                <br />
+                당신의 UI 경험을 한 단계 더 향상시켜 줄
+              </h1>
+            </motion.span>
+          </motion.div>
+        </section>
+      </div>
+    </>
   );
 }

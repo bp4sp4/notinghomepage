@@ -11,8 +11,24 @@
     font-style: normal;
 }
 
-h1 {
-    font-family: '양진체';
+@font-face {
+    font-family: 'PuradakGentleGothicR';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.1/PuradakGentleGothicR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.header {
+    font-family: 'PuradakGentleGothicR';
+    font-weight: bold;
+    margin: 0;
+    padding: 3rem;
+    font-size: 3rem;
+    position: absolute;
+}
+
+.intro__wrap {
+    padding: 3rem
 }
 
 .shapewrap {
