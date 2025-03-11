@@ -2,12 +2,14 @@
 
 import SectionIntro from "./components/SectionIntro";
 import SectionText from "./components/SectionText";
-import { WobbleCardDemo } from "./components/SectionShape";
+import { CardHoverEffectDemo } from "./components/SectionCardEffect";
 import Footer from "./components/Footer";
-import FileTreeComponents from "./components/FileTree";
+
 import ConfettiFireworks from "@/components/magicui/confetti";
 import { motion, useSpring, useScroll } from "motion/react";
 import { GoogleGeminiEffectDemo } from "./components/TextGenration";
+import { AuroraBackgroundDemo } from "./components/background";
+import { MacbookScrollDemo } from "./components/mackbook";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -33,10 +35,11 @@ export default function Home() {
         }}
       />
       <SectionIntro />
-      <FileTreeComponents />
+      <MacbookScrollDemo />
       <SectionText />
       <GoogleGeminiEffectDemo />
-      <WobbleCardDemo />
+      <CardHoverEffectDemo />
+      <AuroraBackgroundDemo />
 
       <div className="relative h-screen  flex h-[500px] w-full items-center justify-center overflow-hidden   bg-black text-white">
         <ConfettiFireworks />

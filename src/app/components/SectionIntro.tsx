@@ -16,9 +16,9 @@ export default function SectionIntro() {
               className="text-shadow-lg"
             >
               <h1>
-                안녕하세요! <br /> 새로운 시선을 담아 <Cover>디자인을</Cover>{" "}
+                안녕하세요! <br /> 새로운 경험을 위해 <Cover>디자인을</Cover>{" "}
                 <br />
-                완성했어요.
+                준비했어요.
               </h1>
             </motion.span>
           </motion.div>

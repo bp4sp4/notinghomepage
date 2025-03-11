@@ -4,6 +4,8 @@
 
 @custom-variant dark (&:is(.dark *));
 
+
+
 @font-face {
     font-family: '양진체';
     src: url('https://fastly.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff') format('woff');
@@ -24,7 +26,9 @@
     margin: 0;
     padding: 3rem;
     font-size: 3rem;
-    position: absolute;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
 }
 
 .intro__wrap {

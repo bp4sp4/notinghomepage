@@ -21,18 +21,19 @@ export const GoogleGeminiEffect = ({
 }) => {
   return (
     <div className={cn("sticky top-80", className)}>
-      <p className="text-lg md:text-7xl font-normal pb-4 text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300">
-        {title || `만들어봤어요 스크롤 UI 경험`}
+      <p className="text-lg md:text-7xl font-extrabold pb-4 text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300">
+        {title || `스크롤 UI를 직접 경험해보세요`}
       </p>
-      <p className="text-xs md:text-xl font-normal text-center text-neutral-400 mt-4 max-w-lg mx-auto">
+      <p className="text-xs md:text-lg font-normal text-center text-neutral-400 mt-4 max-w-lg mx-auto">
         {description ||
-          `이 컴포넌트를 스크롤하면 아래의 SVG가 살아나는 모습을 볼 수 있습니다. 와우, 이게 정말 작동하네요!`}
+          `스크롤하면 아래 SVG가 생동감 있게 변하는 모습을 확인할 수 있어요.`}
       </p>
-      <div className="w-full h-[890px] -top-60 md:-top-40  flex items-center justify-center bg-red-transparent absolute ">
-        <button className="font-bold bg-white rounded-full md:px-4 md:py-2 px-2 py-1 md:mt-24 mt-8 z-30 md:text-base text-black text-xs  w-fit mx-auto ">
+      <div className="w-full h-[890px] -top-60 md:-top-40 flex items-center justify-center bg-red-transparent absolute">
+        <button className="font-bold bg-white rounded-full md:px-4 md:py-2 px-2 py-1 md:mt-24 mt-8 z-30 md:text-base text-black text-xs w-fit mx-auto">
           스크롤을 내려보세요
         </button>
       </div>
+
       <svg
         width="1440"
         height="890"
