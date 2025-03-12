@@ -6,7 +6,7 @@ export default function SectionIntro() {
   return (
     <>
       <div className="bg-black">
-        <h1 className="header text-white">nothings.</h1>
+        <h1 className="header text-white">InteractUI,</h1>
         <section className="h-screen flex justify-center items-center flex-col text-white intro__wrap">
           <motion.div className="text-xl md:text-4xl lg:text-5xl">
             <motion.span

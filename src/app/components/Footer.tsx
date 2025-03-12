@@ -6,11 +6,11 @@ import { FaBloggerB } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="footer__wrap">
+    <footer className="footer__wrap h-screen">
       <p>Did you have an interactive experience?</p>
       <p>bp4sp4@naver.com</p>
       <div>
-        <h1 className="footer__title">notings.</h1>
+        <h1 className="footer__title">InteractUI,</h1>
       </div>
       <div className="footer__link">
         <a href="https://frontdevpark.tistory.com/" target="_blank">
