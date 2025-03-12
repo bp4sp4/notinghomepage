@@ -1,18 +1,18 @@
-import React from "react";
+"use client";
 import { MacbookScroll } from "@/components/ui/macbook-scroll";
 import Link from "next/link";
 
 export function MacbookScrollDemo() {
   return (
-    <div className="overflow-hidden dark:bg-[#0B0B0F] bg-white w-full">
+    <div className="overflow-hidden dark:bg-[#0B0B0F] bg-black w-full">
       <MacbookScroll
         title={
           <span className="text-white">
-            <span className="text-2xl md:text-4xl font-medium">
+            <span className="text-4xl sm:text-3xl md:text-4xl font-medium">
               스크롤에 마법을 더하다
             </span>
             <br />
-            <span className="text-6xl md:text-8xl font-bold">
+            <span className="text-6xl sm:text-5xl md:text-6xl lg:text-8xl font-bold">
               동적인 경험을
             </span>
           </span>
@@ -23,6 +23,7 @@ export function MacbookScrollDemo() {
     </div>
   );
 }
+
 // Peerlist logo
 const Badge = ({ className }: { className?: string }) => {
   return (

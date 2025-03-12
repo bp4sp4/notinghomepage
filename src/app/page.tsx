@@ -10,6 +10,7 @@ import { motion, useSpring, useScroll } from "motion/react";
 import { GoogleGeminiEffectDemo } from "./components/TextGenration";
 import { AuroraBackgroundDemo } from "./components/background";
 import { MacbookScrollDemo } from "./components/mackbook";
+import { TimelineDemo } from "./components/timeline";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -40,7 +41,7 @@ export default function Home() {
       <GoogleGeminiEffectDemo />
       <CardHoverEffectDemo />
       <AuroraBackgroundDemo />
-
+      <TimelineDemo />
       <div className="relative h-screen  flex h-[500px] w-full items-center justify-center overflow-hidden   bg-black text-white">
         <ConfettiFireworks />
       </div>

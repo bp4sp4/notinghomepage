@@ -8,8 +8,8 @@ export default function SectionIntro() {
   return (
     <>
       <div className="bg-black">
-        <section className="h-screen flex justify-center items-center flex-col text-white intro__wrap">
-          <motion.div className="text-4xl">
+        <section className="h-screen flex justify-center items-center flex-col text-white intro__wrap px-4 sm:px-8 md:px-12">
+          <motion.div className="text-xl sm:text-4xl md:text-5xl lg:text-4xl">
             <motion.span
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}

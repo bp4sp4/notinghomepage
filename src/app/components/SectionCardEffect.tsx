@@ -6,9 +6,9 @@ export function CardHoverEffectDemo() {
   return (
     <section className="bg-black h-screen flex items-center justify-center">
       <div className="max-w-5xl mx-auto px-8 bg-black">
-        <h1 className="max-w-5xl font-extrabold text-white text-center">
+        <p className="max-w-5xl font-extrabold text-white text-center text-4xl md:text-6xl lg:text-6xl">
           호버로 색다른 경험을 느껴보세요
-        </h1>
+        </p>
         <HoverEffect items={projects} />
       </div>
     </section>
@@ -25,7 +25,7 @@ export const projects = [
     title: "Aceternity",
     description:
       "웹 애니메이션과 인터랙티브 UI 효과를 구현하는 강력한 라이브러리입니다.",
-    link: "https://aceternity.dev",
+    link: "https://ui.aceternity.com/",
   },
   {
     title: "Magic UI",

@@ -57,7 +57,9 @@ export default function ConfettiFireworks() {
   return (
     <div>
       <div id="triggerPoint">
-        <h1>끝까지 봐주셔서 감사합니다</h1>
+        <p className="text-xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
+          감사합니다!
+        </p>
       </div>
     </div>
   );

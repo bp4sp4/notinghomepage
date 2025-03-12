@@ -1,13 +1,30 @@
 "use client";
-import { motion } from "framer-motion";
+
+import "./footer.css";
+import { ImGithub } from "react-icons/im";
+import { FaBloggerB } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <motion.footer
-      whileHover={{ backgroundColor: "#ff0088", color: "white" }}
-      className="h-40 flex items-center justify-center bg-white text-black cursor-pointer"
-    >
-      nothing matters.
-    </motion.footer>
+    <footer className="footer__wrap">
+      <p>Did you have an interactive experience?</p>
+      <p>bp4sp4@naver.com</p>
+      <div>
+        <h1 className="footer__title">notings.</h1>
+      </div>
+      <div className="footer__link">
+        <a href="https://frontdevpark.tistory.com/" target="_blank">
+          <FaBloggerB /> &nbsp; : Dev Blog
+        </a>
+
+        <a href="https://github.com/bp4sp4/" target="_blank">
+          <ImGithub /> &nbsp; : GitHub
+        </a>
+      </div>
+      <div className="footer__copyright">
+        <p>&copy; 2025 SangHunPark. All Rights Reserved.</p>
+        <p className="subtitle">coded by : PSH</p>
+      </div>
+    </footer>
   );
 }
