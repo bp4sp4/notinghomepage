@@ -17,7 +17,7 @@ export function MacbookScrollDemo() {
             </span>
           </span>
         }
-        src={`/nextjs.png`}
+        src={`/aceternity.png`}
         showGradient={false}
       />
     </div>
