@@ -39,11 +39,11 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     >
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
         <h2 className="text-lg md:text-4xl mb-4 text-white dark:text-white max-w-4xl font-bold">
-          웹 개발 여정: 2년 동안의 경험과 발전
+          웹 개발 여정: 경험과 발전
         </h2>
 
         <p className="text-white dark:text-white text-sm md:text-base max-w-sm">
-          지난 2년 동안 웹사이트를 개발해왔습니다. 저의 여정을 짧게나마
+          지난 기간 동안 웹사이트를 개발해왔습니다. 저의 여정을 짧게나마
           정리해봤습니다.
         </p>
       </div>
